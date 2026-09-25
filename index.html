@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Engineering Student Portfolio</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration & Custom Styles -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#1e3a8a', // Dark blue
+                        secondary: '#3b82f6', // Light blue
+                        dark: '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .progress-bar-fill {
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Glassmorphism for Navbar */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 selection:bg-secondary selection:text-white">
+
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#home" class="font-bold text-2xl text-primary tracking-tight">IE<span class="text-secondary">.Portfolio</span></a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-secondary font-medium transition-colors">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-secondary font-medium transition-colors">About</a>
+                    <a href="#skills" class="text-gray-700 hover:text-secondary font-medium transition-colors">Skills</a>
+                    <a href="#projects" class="text-gray-700 hover:text-secondary font-medium transition-colors">Projects</a>
+                    <a href="#experience" class="text-gray-700 hover:text-secondary font-medium transition-colors">Experience</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-gray-700 font-medium hover:bg-gray-100 rounded-md">Home</a>
+                <a href="#about" class="block px-3 py-2 text-gray-700 font-medium hover:bg-gray-100 rounded-md">About</a>
+                <a href="#skills" class="block px-3 py-2 text-gray-700 font-medium hover:bg-gray-100 rounded-md">Skills</a>
+                <a href="#projects" class="block px-3 py-2 text-gray-700 font-medium hover:bg-gray-100 rounded-md">Projects</a>
+                <a href="#experience" class="block px-3 py-2 text-gray-700 font-medium hover:bg-gray-100 rounded-md">Experience</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-gray-100 pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+            <div class="md:w-3/5 text-center md:text-left fade-in">
+                <p class="text-secondary font-semibold tracking-wide uppercase text-sm mb-3">Welcome to my portfolio</p>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-dark leading-tight mb-6">
+                    Industrial Engineering Student <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Problem Solver.</span>
+                </h1>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl leading-relaxed">
+                    Passionate about optimizing systems through <strong>Ergonomics</strong>, streamlining the <strong>Supply Chain</strong>, and driving impact with <strong>Data-Driven Decision Making</strong>.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#projects" class="px-8 py-3 bg-primary text-white font-medium rounded-full shadow-lg shadow-blue-500/30 hover:bg-blue-800 hover:shadow-blue-500/50 transition-all duration-300 text-center">
+                        View Projects
+                    </a>
+                    <a href="#contact" class="px-8 py-3 bg-white text-gray-700 font-medium rounded-full border border-gray-200 shadow-sm hover:bg-gray-50 transition-all duration-300 text-center">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-2/5 flex justify-center fade-in delay-200">
+                <div class="relative w-64 h-64 md:w-80 md:h-80">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-secondary to-primary rounded-full blur-2xl opacity-20 animate-pulse"></div>
+                    <img src="https://placehold.co/400x400/1e3a8a/ffffff?text=IE+Student" alt="Profile" class="rounded-full w-full h-full object-cover shadow-2xl relative z-10 border-4 border-white">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold text-dark mb-4">About Me</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
+            </div>
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/2 fade-in">
+                    <div class="bg-blue-50 p-8 rounded-2xl border border-blue-100">
+                        <i class="fas fa-quote-left text-4xl text-secondary opacity-30 mb-4"></i>
+                        <p class="text-gray-700 leading-relaxed text-lg mb-6">
+                            I am a third-semester Industrial Engineering student at <strong class="text-primary">Telkom University</strong>. My academic journey is driven by a deep fascination with how humans interact with systems and how data can be leveraged to maximize efficiency.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed text-lg">
+                            With strong interests in <strong>Human Factors (Ergonomics)</strong>, <strong>Logistics</strong>, and <strong>Data Analysis</strong>, I am constantly seeking opportunities to apply theoretical knowledge to real-world industrial challenges.
+                        </p>
+                    </div>
+                </div>
+                <div class="md:w-1/2 fade-in grid grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm text-center hover:shadow-md transition-shadow">
+                        <i class="fas fa-university text-3xl text-primary mb-3"></i>
+                        <h3 class="font-bold text-gray-800">Education</h3>
+                        <p class="text-sm text-gray-500">Telkom University</p>
+                        <p class="text-xs text-gray-400 mt-1">Semester 3</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm text-center hover:shadow-md transition-shadow">
+                        <i class="fas fa-map-marker-alt text-3xl text-primary mb-3"></i>
+                        <h3 class="font-bold text-gray-800">Location</h3>
+                        <p class="text-sm text-gray-500">Bandung, Indonesia</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm text-center hover:shadow-md transition-shadow col-span-2">
+                        <i class="fas fa-lightbulb text-3xl text-primary mb-3"></i>
+                        <h3 class="font-bold text-gray-800">Core Focus</h3>
+                        <p class="text-sm text-gray-500">Continuous Improvement & System Optimization</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold text-dark mb-4">Core Skills</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-600">Tools and domains I have expertise in.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Technical Skills (Progress Bars) -->
+                <div class="fade-in">
+                    <h3 class="text-xl font-bold text-dark mb-6 flex items-center"><i class="fas fa-laptop-code mr-3 text-secondary"></i> Technical Tools</h3>
+                    
+                    <div class="mb-5">
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700">Python</span>
+                            <span class="text-sm text-gray-500">75%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-primary h-2.5 rounded-full progress-bar-fill" data-width="75%"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-5">
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700">Autodesk Inventor</span>
+                            <span class="text-sm text-gray-500">80%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-secondary h-2.5 rounded-full progress-bar-fill" data-width="80%"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-5">
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700">Looker Studio</span>
+                            <span class="text-sm text-gray-500">70%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-teal-500 h-2.5 rounded-full progress-bar-fill" data-width="70%"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-5">
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium text-gray-700">Canva</span>
+                            <span class="text-sm text-gray-500">90%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-purple-500 h-2.5 rounded-full progress-bar-fill" data-width="90%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Domain Knowledge (Tags) -->
+                <div class="fade-in">
+                    <h3 class="text-xl font-bold text-dark mb-6 flex items-center"><i class="fas fa-brain mr-3 text-secondary"></i> Domain Expertise</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm text-gray-700 font-medium hover:border-secondary hover:text-secondary transition-colors cursor-default">
+                            <i class="fas fa-chair mr-2"></i>Ergonomics & Human Factors
+                        </span>
+                        <span class="px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm text-gray-700 font-medium hover:border-secondary hover:text-secondary transition-colors cursor-default">
+                            <i class="fas fa-chart-line mr-2"></i>Statistical Quality Control
+                        </span>
+                        <span class="px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm text-gray-700 font-medium hover:border-secondary hover:text-secondary transition-colors cursor-default">
+                            <i class="fas fa-truck-loading mr-2"></i>Supply Chain Management
+                        </span>
+                        <span class="px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm text-gray-700 font-medium hover:border-secondary hover:text-secondary transition-colors cursor-default">
+                            <i class="fas fa-database mr-2"></i>Data-Driven Decision Making
+                        </span>
+                        <span class="px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm text-gray-700 font-medium hover:border-secondary hover:text-secondary transition-colors cursor-default">
+                            <i class="fas fa-cogs mr-2"></i>System Optimization
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold text-dark mb-4">Featured Projects</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-600">Practical applications of industrial engineering principles.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:-translate-y-2 transition-transform duration-300 fade-in flex flex-col">
+                    <div class="h-48 bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center relative">
+                        <i class="fas fa-seedling text-white text-5xl opacity-80"></i>
+                        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/40 to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex gap-2 mb-3">
+                            <span class="px-2.5 py-0.5 rounded-full bg-green-100 text-green-700 text-xs font-semibold">IoT</span>
+                            <span class="px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-700 text-xs font-semibold">Agriculture</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">AgroSense Presisi</h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-1">
+                            An IoT Smart Agriculture project utilizing ESP32 microcontrollers. Designed to monitor environmental parameters in real-time to optimize crop yield and resource usage efficiently.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:-translate-y-2 transition-transform duration-300 fade-in flex flex-col" style="transition-delay: 100ms;">
+                    <div class="h-48 bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center relative">
+                        <i class="fas fa-bus text-white text-5xl opacity-80"></i>
+                        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/40 to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex gap-2 mb-3">
+                            <span class="px-2.5 py-0.5 rounded-full bg-indigo-100 text-indigo-700 text-xs font-semibold">Ergonomics</span>
+                            <span class="px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-700 text-xs font-semibold">Safety</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Driver Posture Ergonomics Study</h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-1">
+                            Conducted a comprehensive ergonomic analysis at <strong>PO PT Bagong Dekaka Makmur</strong>. Analyzed seating postures to minimize musculoskeletal disorders (MSD) and improve driver comfort and safety on long routes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:-translate-y-2 transition-transform duration-300 fade-in flex flex-col" style="transition-delay: 200ms;">
+                    <div class="h-48 bg-gradient-to-r from-red-500 to-rose-600 flex items-center justify-center relative">
+                        <i class="fas fa-tshirt text-white text-5xl opacity-80"></i>
+                        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/40 to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex gap-2 mb-3">
+                            <span class="px-2.5 py-0.5 rounded-full bg-red-100 text-red-700 text-xs font-semibold">Supply Chain</span>
+                            <span class="px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-700 text-xs font-semibold">QC</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">UNIQLO Business Model Canvas</h3>
+                        <p class="text-gray-600 text-sm mb-4 flex-1">
+                            A strategic mapping and analysis using the Business Model Canvas framework. The study focused specifically on evaluating UNIQLO's supply chain agility and their rigorous Quality Control standards.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold text-dark mb-4">Experience & Activities</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
+            </div>
+
+            <div class="relative border-l-4 border-blue-200 ml-3 md:ml-6 space-y-12">
+                <!-- Timeline Item 1 -->
+                <div class="relative pl-8 fade-in">
+                    <div class="absolute -left-[14px] top-1 h-6 w-6 bg-white border-4 border-secondary rounded-full"></div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <span class="text-sm font-bold text-secondary mb-1 block">Campus Orientation Event</span>
+                        <h3 class="text-xl font-bold text-gray-800">Head of Logistics and Consumption</h3>
+                        <p class="text-gray-600 mt-2">
+                            Led a team responsible for the end-to-end supply chain of food and equipment during the university orientation program. Ensured zero stockouts, optimized budget allocation, and managed distribution schedules for hundreds of participants.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="relative pl-8 fade-in">
+                    <div class="absolute -left-[14px] top-1 h-6 w-6 bg-white border-4 border-primary rounded-full"></div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <span class="text-sm font-bold text-primary mb-1 block">Competition</span>
+                        <h3 class="text-xl font-bold text-gray-800">BIzzIT COMPFEST 18 Business IT Case</h3>
+                        <p class="text-gray-600 mt-2">
+                            Participated in solving complex business-IT problems. Applied industrial engineering frameworks to design tech-driven business solutions, demonstrating analytical thinking and collaborative problem-solving under strict deadlines.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-dark text-white py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0 text-center md:text-left">
+                <a href="#home" class="font-bold text-2xl tracking-tight mb-2 block">IE<span class="text-secondary">.Portfolio</span></a>
+                <p class="text-gray-400 text-sm">Industrial Engineering Student at Telkom University</p>
+            </div>
+            
+            <div class="flex space-x-6 mb-6 md:mb-0">
+                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary hover:text-white transition-colors duration-300">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:example@student.telkomuniversity.ac.id" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary hover:text-white transition-colors duration-300">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary hover:text-white transition-colors duration-300">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 text-center text-gray-500 text-sm border-t border-gray-800 pt-8">
+            &copy; 2026 Industrial Engineering Portfolio. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu on link click
+            const mobileLinks = menu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                });
+            });
+
+            // Navbar Background on Scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    navbar.classList.add('shadow-md');
+                } else {
+                    navbar.classList.remove('shadow-md');
+                }
+            });
+
+            // Intersection Observer for Fade-in Animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // If it's the skills section, animate progress bars
+                        if(entry.target.id === 'skills' || entry.target.closest('#skills')) {
+                            const progressBars = entry.target.querySelectorAll('.progress-bar-fill');
+                            progressBars.forEach(bar => {
+                                const targetWidth = bar.getAttribute('data-width');
+                                // small timeout to ensure transition triggers
+                                setTimeout(() => {
+                                    bar.style.width = targetWidth;
+                                }, 200);
+                            });
+                        }
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all elements with .fade-in class
+            document.querySelectorAll('.fade-in').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
